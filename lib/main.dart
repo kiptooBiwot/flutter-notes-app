@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:notes_app/screens/home.dart';
 import 'package:notes_app/screens/login.dart';
 import 'package:notes_app/screens/register.dart';
 import 'firebase_options.dart';
@@ -7,9 +8,7 @@ import 'firebase_options.dart';
 void main() async {
   // Initialize Firebase to the project
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp(
-    options: DefaultFirebaseOptions.currentPlatform,
-  );
+
   runApp(const NotesApp());
 }
 
@@ -23,7 +22,7 @@ class NotesApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blueGrey,
       ),
-      home: const LoginView(),
+      home: const HomePage(),
     );
   }
 }
