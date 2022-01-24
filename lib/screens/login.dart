@@ -52,47 +52,41 @@ class _LoginViewState extends State<LoginView> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Login'),
-        centerTitle: true,
-      ),
-      body: Center(
-        child: Padding(
-          padding: const EdgeInsets.all(16.0),
-          child: Column(
-            children: [
-              TextField(
-                controller: _email,
-                enableSuggestions: false,
-                autocorrect: false,
-                keyboardType: TextInputType.emailAddress,
-                decoration: const InputDecoration(
-                  border: OutlineInputBorder(),
-                  labelText: 'Enter your email',
-                ),
+    return Center(
+      child: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Column(
+          children: [
+            TextField(
+              controller: _email,
+              enableSuggestions: false,
+              autocorrect: false,
+              keyboardType: TextInputType.emailAddress,
+              decoration: const InputDecoration(
+                border: OutlineInputBorder(),
+                labelText: 'Enter your email',
               ),
-              const SizedBox(
-                height: 10.0,
+            ),
+            const SizedBox(
+              height: 10.0,
+            ),
+            TextField(
+              controller: _password,
+              autocorrect: false,
+              obscureText: true,
+              decoration: const InputDecoration(
+                border: OutlineInputBorder(),
+                labelText: 'Enter your password',
               ),
-              TextField(
-                controller: _password,
-                autocorrect: false,
-                obscureText: true,
-                decoration: const InputDecoration(
-                  border: OutlineInputBorder(),
-                  labelText: 'Enter your password',
-                ),
-              ),
-              const SizedBox(
-                height: 10.0,
-              ),
-              TextButton(
-                onPressed: _loginUser,
-                child: const Text('Log In'),
-              ),
-            ],
-          ),
+            ),
+            const SizedBox(
+              height: 10.0,
+            ),
+            TextButton(
+              onPressed: _loginUser,
+              child: const Text('Log In'),
+            ),
+          ],
         ),
       ),
     );
