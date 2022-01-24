@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:notes_app/screens/register.dart';
 
 class LoginView extends StatefulWidget {
   const LoginView({Key? key}) : super(key: key);
@@ -52,41 +53,55 @@ class _LoginViewState extends State<LoginView> {
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Column(
-          children: [
-            TextField(
-              controller: _email,
-              enableSuggestions: false,
-              autocorrect: false,
-              keyboardType: TextInputType.emailAddress,
-              decoration: const InputDecoration(
-                border: OutlineInputBorder(),
-                labelText: 'Enter your email',
-              ),
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Login'),
+        centerTitle: true,
+      ),
+      body: SingleChildScrollView(
+        child: Center(
+          child: Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: Column(
+              children: [
+                TextField(
+                  controller: _email,
+                  enableSuggestions: false,
+                  autocorrect: false,
+                  keyboardType: TextInputType.emailAddress,
+                  decoration: const InputDecoration(
+                    border: OutlineInputBorder(),
+                    labelText: 'Enter your email',
+                  ),
+                ),
+                const SizedBox(
+                  height: 10.0,
+                ),
+                TextField(
+                  controller: _password,
+                  autocorrect: false,
+                  obscureText: true,
+                  decoration: const InputDecoration(
+                    border: OutlineInputBorder(),
+                    labelText: 'Enter your password',
+                  ),
+                ),
+                const SizedBox(
+                  height: 10.0,
+                ),
+                TextButton(
+                  onPressed: _loginUser,
+                  child: const Text('Log In'),
+                ),
+                TextButton(
+                  onPressed: () {
+                    Navigator.of(context).pushNamed('/register');
+                  },
+                  child: const Text('Not registered yet, Register here'),
+                ),
+              ],
             ),
-            const SizedBox(
-              height: 10.0,
-            ),
-            TextField(
-              controller: _password,
-              autocorrect: false,
-              obscureText: true,
-              decoration: const InputDecoration(
-                border: OutlineInputBorder(),
-                labelText: 'Enter your password',
-              ),
-            ),
-            const SizedBox(
-              height: 10.0,
-            ),
-            TextButton(
-              onPressed: _loginUser,
-              child: const Text('Log In'),
-            ),
-          ],
+          ),
         ),
       ),
     );

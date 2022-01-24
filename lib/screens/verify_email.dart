@@ -18,17 +18,22 @@ class _VerifyEmailViewState extends State<VerifyEmailView> {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        const SizedBox(
-          height: 40.0,
-        ),
-        const Text('Please verify your email'),
-        TextButton(
-          onPressed: _verifyEmail,
-          child: const Text('Send Email Verification'),
-        ),
-      ],
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Verify Email'),
+      ),
+      body: Column(
+        children: [
+          const SizedBox(
+            height: 40.0,
+          ),
+          const Text('Please verify your email'),
+          TextButton(
+            onPressed: _verifyEmail,
+            child: const Text('Send Email Verification'),
+          ),
+        ],
+      ),
     );
   }
 }

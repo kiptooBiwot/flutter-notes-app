@@ -22,7 +22,13 @@ class NotesApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blueGrey,
       ),
-      home: const HomePage(),
+      // home: const HomePage(),
+      initialRoute: '/',
+      routes: {
+        '/': (context) => const HomePage(),
+        '/login': (context) => const LoginView(),
+        '/register': (context) => const RegisterView(),
+      },
     );
   }
 }

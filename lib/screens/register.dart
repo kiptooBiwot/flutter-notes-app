@@ -59,41 +59,53 @@ class _RegisterViewState extends State<RegisterView> {
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Column(
-          children: [
-            TextField(
-              controller: _email,
-              enableSuggestions: false,
-              autocorrect: false,
-              keyboardType: TextInputType.emailAddress,
-              decoration: const InputDecoration(
-                border: OutlineInputBorder(),
-                labelText: 'Enter your email',
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Register'),
+        centerTitle: true,
+      ),
+      body: Center(
+        child: Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: Column(
+            children: [
+              TextField(
+                controller: _email,
+                enableSuggestions: false,
+                autocorrect: false,
+                keyboardType: TextInputType.emailAddress,
+                decoration: const InputDecoration(
+                  border: OutlineInputBorder(),
+                  labelText: 'Enter your email',
+                ),
               ),
-            ),
-            const SizedBox(
-              height: 10.0,
-            ),
-            TextField(
-              controller: _password,
-              autocorrect: false,
-              obscureText: true,
-              decoration: const InputDecoration(
-                border: OutlineInputBorder(),
-                labelText: 'Enter your password',
+              const SizedBox(
+                height: 10.0,
               ),
-            ),
-            const SizedBox(
-              height: 10.0,
-            ),
-            TextButton(
-              onPressed: registerUser,
-              child: const Text('Register'),
-            ),
-          ],
+              TextField(
+                controller: _password,
+                autocorrect: false,
+                obscureText: true,
+                decoration: const InputDecoration(
+                  border: OutlineInputBorder(),
+                  labelText: 'Enter your password',
+                ),
+              ),
+              const SizedBox(
+                height: 10.0,
+              ),
+              TextButton(
+                onPressed: registerUser,
+                child: const Text('Register'),
+              ),
+              TextButton(
+                onPressed: () {
+                  Navigator.of(context).pushNamed('/login');
+                },
+                child: const Text('Have an Account? Login here'),
+              ),
+            ],
+          ),
         ),
       ),
     );

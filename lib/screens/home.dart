@@ -10,41 +10,32 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('My Notes App'),
-        centerTitle: true,
+    return FutureBuilder(
+      future: Firebase.initializeApp(
+        options: DefaultFirebaseOptions.currentPlatform,
       ),
-      body: FutureBuilder(
-        future: Firebase.initializeApp(
-          options: DefaultFirebaseOptions.currentPlatform,
-        ),
-        builder: (context, snapshot) {
-          switch (snapshot.connectionState) {
-            case ConnectionState.done:
-              // Check if user's email is verified
-              // final user = FirebaseAuth.instance.currentUser;
-              // final emailVerified = user?.emailVerified ?? false;
+      builder: (context, snapshot) {
+        switch (snapshot.connectionState) {
+          case ConnectionState.done:
+            // Check if user's email is verified
+            final user = FirebaseAuth.instance.currentUser;
+            final emailVerified = user?.emailVerified ?? false;
 
-              // print(user);
-              // Can also be written as
-              // if(user?.emailVerified ?? false) {}
-
-              // if (emailVerified) {
-              //   print('Email is verified!');
-              //   return const Text('Done!');
-              // } else {
-              //   return const VerifyEmailView();
-              // }
-
+            if (user != null) {
+              if (user.emailVerified) {
+                print('Email is verified');
+              } else {
+                return const VerifyEmailView();
+              }
+            } else {
               return const LoginView();
-
-            // break;
-            default:
-              return const Text('Loading....');
-          }
-        },
-      ),
+            }
+            return const Text('Done');
+          // break;
+          default:
+            return const CircularProgressIndicator();
+        }
+      },
     );
   }
 }
