@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:notes_app/constants/routes.dart';
 import 'package:notes_app/screens/home.dart';
 import 'package:notes_app/screens/login.dart';
 import 'package:notes_app/screens/notes.dart';
@@ -23,12 +24,12 @@ class NotesApp extends StatelessWidget {
         primarySwatch: Colors.blueGrey,
       ),
       // home: const HomePage(),
-      initialRoute: '/',
+      initialRoute: homeRoute,
       routes: {
-        '/': (context) => const HomePage(),
-        '/login': (context) => const LoginView(),
-        '/register': (context) => const RegisterView(),
-        '/notes': (context) => const NotesView(),
+        homeRoute: (context) => const HomePage(),
+        loginRoute: (context) => const LoginView(),
+        registerRoute: (context) => const RegisterView(),
+        notesRoute: (context) => const NotesView(),
       },
     );
   }
