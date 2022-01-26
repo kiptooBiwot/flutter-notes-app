@@ -6,6 +6,8 @@ import 'package:notes_app/screens/notes.dart';
 import 'package:notes_app/screens/register.dart';
 import 'dart:developer' as devtools show log;
 
+import 'package:notes_app/screens/verify_email.dart';
+
 void main() async {
   // Initialize Firebase to the project
   WidgetsFlutterBinding.ensureInitialized();
@@ -30,6 +32,7 @@ class NotesApp extends StatelessWidget {
         loginRoute: (context) => const LoginView(),
         registerRoute: (context) => const RegisterView(),
         notesRoute: (context) => const NotesView(),
+        verifyEmailRoute: (context) => const VerifyEmailView(),
       },
     );
   }
