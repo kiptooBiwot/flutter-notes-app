@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:firebase_core/firebase_core.dart';
 import 'package:notes_app/screens/home.dart';
 import 'package:notes_app/screens/login.dart';
 import 'package:notes_app/screens/notes.dart';
 import 'package:notes_app/screens/register.dart';
-import 'firebase_options.dart';
 import 'dart:developer' as devtools show log;
 
 void main() async {
@@ -30,7 +28,7 @@ class NotesApp extends StatelessWidget {
         '/': (context) => const HomePage(),
         '/login': (context) => const LoginView(),
         '/register': (context) => const RegisterView(),
-        '/notesList': (context) => const NotesView(),
+        '/notes': (context) => const NotesView(),
       },
     );
   }
