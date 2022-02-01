@@ -4,8 +4,6 @@ import 'package:notes_app/screens/home.dart';
 import 'package:notes_app/screens/login.dart';
 import 'package:notes_app/screens/notes.dart';
 import 'package:notes_app/screens/register.dart';
-import 'dart:developer' as devtools show log;
-
 import 'package:notes_app/screens/verify_email.dart';
 
 void main() async {

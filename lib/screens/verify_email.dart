@@ -1,6 +1,7 @@
-import 'package:firebase_auth/firebase_auth.dart';
+// import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:notes_app/constants/routes.dart';
+import 'package:notes_app/services/auth/auth_service.dart';
 
 class VerifyEmailView extends StatefulWidget {
   const VerifyEmailView({Key? key}) : super(key: key);
@@ -12,9 +13,7 @@ class VerifyEmailView extends StatefulWidget {
 class _VerifyEmailViewState extends State<VerifyEmailView> {
   // Verify user email fn
   void _verifyEmail() async {
-    final user = FirebaseAuth.instance.currentUser;
-
-    await user?.sendEmailVerification();
+    await AuthService.firebase().sendEmailVerification();
   }
 
   @override
