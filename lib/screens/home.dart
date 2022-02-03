@@ -1,9 +1,6 @@
-// import 'package:firebase_auth/firebase_auth.dart';
-// import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:notes_app/firebase_options.dart';
 import 'package:notes_app/screens/login.dart';
-import 'package:notes_app/screens/notes.dart';
+import 'package:notes_app/screens/notes/notes_view.dart';
 import 'package:notes_app/screens/verify_email.dart';
 import 'package:notes_app/services/auth/auth_service.dart';
 
